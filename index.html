@@ -1,234 +1,190 @@
 <!DOCTYPE html>
-<!-- ↑ Šis saka pārlūkam: "Šis ir HTML5 dokuments" -->
-
 <html lang="lv">
-<!-- ↑ <html> - Visa lapas sākums. lang="lv" nozīmē latviešu valoda -->
-
 <head>
-<!-- ↑ <head> satur informāciju PAR lapu (lietotājs neredz) -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patricija Negeleva — Darbi</title>
 
-    <meta charset="UTF-8">
-    <!-- ↑ Atbalsta latviešu burtus (ā, č, ē, ģ...) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ↑ Lai lapa labi izskatās uz mobilajiem telefoniem -->
-
-    <title>Portfolio</title>
-    <!-- ↑ Teksts, ko redz pārlūka tab augšā -->
-
-    <link rel="stylesheet" href="style.css">
-    <!-- ↑ SVARĪGI! Pievieno CSS failu ar stiliem -->
-    <!-- href="style.css" nozīmē: meklē style.css TAJĀ PAŠĀ mapē -->
-
+  <link rel="stylesheet" href="style.css" />
 </head>
-<!-- ↑ Head beidzas -->
-
 <body>
-<!-- ↑ <body> satur visu, ko lietotājs REDZ lapā -->
-   
-    <!-- ========================================
-         HEADER - Augšējā navigācijas josla
-         ======================================== -->
-    <header>
-    <!-- ↑ Semantiskais tags lapas galvenei -->
-    <!-- Šeit būs logo un menu -->
+  <div class="page">
 
-        <nav>
-        <!-- ↑ <nav> - navigācijas elements -->
+    <header class="site-header">
+      <h1 class="site-name">Patricija Negeleva</h1>
 
-            <h1>Vārds Uzvārds</h1>
-            <!-- ↑ <h1> - Galvenais virsraksts (lielākais) -->
-            <!-- Šeit students raksta savu vārdu -->
-
-            <ul>
-            <!-- ↑ <ul> - Unordered List (saraksts ar punktiem) -->
-
-                <li><a href="index.html">Sākums</a></li>
-                <!-- ↑ <li> - List Item (saraksta elements) -->
-                <!-- <a href="..."> - saite uz citu lapu -->
-                <!-- href="index.html" - ved uz šo pašu lapu -->
-
-                <li><a href="about.html">Par mani</a></li>
-                <!-- ↑ Saite uz "Par mani" lapu (vēl nav izveidota) -->
-
-                <li><a href="contact.html">Kontakti</a></li>
-                <!-- ↑ Saite uz "Kontakti" lapu (vēl nav izveidota) -->
-
-            </ul>
-            <!-- ↑ Saraksta beigas -->
-
-        </nav>
-        <!-- ↑ Navigācijas beigas -->
-
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link hover-pixel nav-left active">darbi</a>
+        <a href="about.html" class="nav-link hover-pixel nav-center">par mani</a>
+        <a href="contact.html" class="nav-link hover-pixel nav-right">kontakti</a>
+      </nav>
     </header>
-    <!-- ↑ Header beidzas -->
 
-    <!-- ========================================
-         MAIN - Galvenais saturs
-         ======================================== -->
-    <main>
-    <!-- ↑ <main> - galvenais lapas saturs -->
+    <main class="portfolio-layout">
+      <aside class="categories">
+        <button class="category-link hover-pixel active" type="button" data-filter="all">visi</button>
+        <button class="category-link hover-pixel" type="button" data-filter="foto">foto</button>
+        <button class="category-link hover-pixel" type="button" data-filter="video">video</button>
+        <button class="category-link hover-pixel" type="button" data-filter="grafika">grafika</button>
+        <button class="category-link hover-pixel" type="button" data-filter="3d">3D</button>
+      </aside>
 
-        <!-- HERO SEKCIJA - Liela intro daļa -->
-        <section class="hero">
-        <!-- ↑ <section> - semantisks satura bloks -->
-        <!-- class="hero" - CSS var mērķēt šo konkrēto sekciju -->
+      <section class="works-grid">
 
-            <h2>Māksliniece<br>un programmētāja</h2>
-            <!-- ↑ <h2> - Otrā līmeņa virsraksts (mazāks par h1) -->
-            <!-- <br> - line break, jauna rinda -->
+        <article class="work-card portrait" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7481.jpg" data-title="IMG_7481">
+            <img src="foto/IMG_7481.jpg" alt="IMG_7481" />
+          </button>
+        </article>
 
-            <p>Radu interaktīvas pieredzes, kurās māksla satiekas ar tehnoloģijām.</p>
-            <!-- ↑ <p> - Paragraph (rindkopa/paragrāfs) -->
+        <article class="work-card landscape" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7482.jpg" data-title="IMG_7482">
+            <img src="foto/IMG_7482.jpg" alt="IMG_7482" />
+          </button>
+        </article>
 
-        </section>
-        <!-- ↑ Hero sekcijas beigas -->
+        <article class="work-card square" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7488.jpg" data-title="IMG_7488">
+            <img src="foto/IMG_7488.jpg" alt="IMG_7488" />
+          </button>
+        </article>
 
-        <!-- PORTFOLIO SEKCIJA - Darbu galerija -->
-        <section class="portfolio">
-        <!-- ↑ Jauna sekcija ar class="portfolio" -->
+        <article class="work-card wide" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7489 2.jpg" data-title="IMG_7489 2">
+            <img src="foto/IMG_7489 2.jpg" alt="IMG_7489 2" />
+          </button>
+        </article>
 
-            <h2>Izvēlētie darbi</h2>
-            <!-- ↑ Sekcijas virsraksts -->
+        <article class="work-card tall" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7490.jpg" data-title="IMG_7490">
+            <img src="foto/IMG_7490.jpg" alt="IMG_7490" />
+          </button>
+        </article>
 
-            <div class="gallery">
-            <!-- ↑ <div> - Container (kastīte grupēšanai) -->
-            <!-- class="gallery" - CSS izmantos, lai izveidotu grid layout -->
+        <article class="work-card small" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7491.jpg" data-title="IMG_7491">
+            <img src="foto/IMG_7491.jpg" alt="IMG_7491" />
+          </button>
+        </article>
 
-                <!-- PROJEKTS 1 -->
-                <div class="project-card card1">
-                <!-- ↑ Pirmā projekta kartīte -->
-                <!-- 2 klases: "project-card" (vispārīgi stili) + "card1" (specifiskā krāsa) -->
+        <article class="work-card landscape" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7492 2.jpg" data-title="IMG_7492 2">
+            <img src="foto/IMG_7492 2.jpg" alt="IMG_7492 2" />
+          </button>
+        </article>
 
-                    <div class="img-placeholder"></div>
-                    <!-- ↑ Tukša kastīte attēlam -->
-                    <!-- CSS piešķirs pelēko fonu -->
-                    <!-- Vēlāk var pievienot: <img src="images/project1.jpg"> -->
+        <article class="work-card square" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7493 2.jpg" data-title="IMG_7493 2">
+            <img src="foto/IMG_7493 2.jpg" alt="IMG_7493 2" />
+          </button>
+        </article>
 
-                    <h3>Projekta nosaukums</h3>
-                    <!-- ↑ <h3> - Trešā līmeņa virsraksts (vēl mazāks) -->
-                    <!-- Students šeit raksta sava darba nosaukumu -->
+        <article class="work-card wide" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7493.jpg" data-title="IMG_7493">
+            <img src="foto/IMG_7493.jpg" alt="IMG_7493" />
+          </button>
+        </article>
 
-                    <p>Interaktīva instalācija, 2025</p>
-                    <!-- ↑ Īss darba apraksts -->
+        <article class="work-card portrait" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7494.jpg" data-title="IMG_7494">
+            <img src="foto/IMG_7494.jpg" alt="IMG_7494" />
+          </button>
+        </article>
 
-                </div>
-                <!-- ↑ Projekta 1 beigas -->
+        <article class="work-card landscape" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7495.jpg" data-title="IMG_7495">
+            <img src="foto/IMG_7495.jpg" alt="IMG_7495" />
+          </button>
+        </article>
 
-                <!-- PROJEKTS 2 -->
-                <div class="project-card card2">
-                <!-- ↑ Otrā projekta kartīte -->
-                <!-- card2 = cita fona krāsa CSS -->
+        <article class="work-card square" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7496.jpg" data-title="IMG_7496">
+            <img src="foto/IMG_7496.jpg" alt="IMG_7496" />
+          </button>
+        </article>
 
-                    <div class="img-placeholder"></div>
-                    <!-- ↑ Vieta otrajam attēlam -->
+        <article class="work-card wide" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_7497.jpg" data-title="IMG_7497">
+            <img src="foto/IMG_7497.jpg" alt="IMG_7497" />
+          </button>
+        </article>
 
-                    <h3>Projekta nosaukums</h3>
-                    <!-- ↑ Otra projekta nosaukums -->
+        <article class="work-card tall" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_9575.jpg" data-title="IMG_9575">
+            <img src="foto/IMG_9575.jpg" alt="IMG_9575" />
+          </button>
+        </article>
 
-                    <p>Ģeneratīvā māksla, 2025</p>
-                    <!-- ↑ Otra projekta apraksts -->
+        <article class="work-card landscape" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_9576.jpg" data-title="IMG_9576">
+            <img src="foto/IMG_9576.jpg" alt="IMG_9576" />
+          </button>
+        </article>
 
-                </div>
-                <!-- ↑ Projekta 2 beigas -->
+        <article class="work-card square" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_9577.jpg" data-title="IMG_9577">
+            <img src="foto/IMG_9577.jpg" alt="IMG_9577" />
+          </button>
+        </article>
 
-                <!-- PROJEKTS 3 -->
-                <div class="project-card card3">
-                <!-- ↑ Trešā projekta kartīte -->
+        <article class="work-card wide" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_9578.jpg" data-title="IMG_9578">
+            <img src="foto/IMG_9578.jpg" alt="IMG_9578" />
+          </button>
+        </article>
 
-                    <div class="img-placeholder"></div>
-                    <!-- ↑ Vieta trešajam attēlam -->
+        <article class="work-card portrait" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_9579.jpg" data-title="IMG_9579">
+            <img src="foto/IMG_9579.jpg" alt="IMG_9579" />
+          </button>
+        </article>
 
-                    <h3>Projekta nosaukums</h3>
-                    <!-- ↑ Trešā projekta nosaukums -->
+        <article class="work-card landscape" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_9580.jpg" data-title="IMG_9580">
+            <img src="foto/IMG_9580.jpg" alt="IMG_9580" />
+          </button>
+        </article>
 
-                    <p>Web eksperiments, 2025</p>
-                    <!-- ↑ Trešā projekta apraksts -->
+        <article class="work-card square" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_9581.jpg" data-title="IMG_9581">
+            <img src="foto/IMG_9581.jpg" alt="IMG_9581" />
+          </button>
+        </article>
 
-                </div>
-                <!-- ↑ Projekta 3 beigas -->
+        <article class="work-card wide" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/IMG_9582.jpg" data-title="IMG_9582">
+            <img src="foto/IMG_9582.jpg" alt="IMG_9582" />
+          </button>
+        </article>
 
-            </div>
-            <!-- ↑ Gallery beidzas -->
+        <article class="work-card tall" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/VKN_patricija11.JPG" data-title="VKN_patricija11">
+            <img src="foto/VKN_patricija11.JPG" alt="VKN_patricija11" />
+          </button>
+        </article>
 
-        </section>
-        <!-- ↑ Portfolio sekcijas beigas -->
+        <article class="work-card landscape" data-category="foto">
+          <button class="work-image" type="button" data-full="foto/VKN_patricija12.JPG" data-title="VKN_patricija12">
+            <img src="foto/VKN_patricija12.JPG" alt="VKN_patricija12" />
+          </button>
+        </article>
 
+      </section>
     </main>
-    <!-- ↑ Main satura beigas -->
+  </div>
 
-    <!-- ========================================
-         FOOTER - Apakšējā daļa ar info
-         ======================================== -->
-    <footer>
-    <!-- ↑ <footer> - semantisks tags lapas kājenei -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close hover-pixel" id="lightboxClose" type="button">close</button>
+    <div class="lightbox-inner">
+      <img id="lightboxImage" src="" alt="" />
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
 
-        <div class="footer-content">
-        <!-- ↑ Container kas centēs saturu (CSS) -->
-
-            <p>© 2026 Vārds Uzvārds</p>
-            <!-- ↑ Copyright simbols © un vārds -->
-
-            <div class="social-links">
-            <!-- ↑ Container sociālajām saitēm -->
-
-                <a href="#">Instagram</a>
-                <!-- ↑ Saite uz Instagram -->
-                <!-- href="#" - pagaidu, vēlāk aizstāj ar īsto URL -->
-
-                <a href="#">Youtube</a>
-                <!-- ↑ Saite uz Youtube -->
-
-                <a href="#">Facebook</a>
-                <!-- ↑ Saite uz Facebook -->
-
-            </div>
-            <!-- ↑ Social links beidzas -->
-
-        </div>
-        <!-- ↑ Footer content beidzas -->
-
-    </footer>
-    <!-- ↑ Footer beidzas -->
-
+  <script src="script.js"></script>
 </body>
-<!-- ↑ Body beidzas -->
-
 </html>
-<!-- ↑ Visa HTML dokumenta beigas -->
-
-
-<!--
-==============================================
-KOPSAVILKUMS - LAPAS STRUKTŪRA:
-==============================================
-
-1. HEADER (augšā)
-   └── Logo (Vārds Uzvārds) + Menu saites
-
-2. MAIN (vidus)
-   ├── HERO sekcija
-   │   └── Liels virsraksts + apraksts
-   └── PORTFOLIO sekcija
-       └── 3 projektu kartītes
-           ├── Attēla vieta
-           ├── Nosaukums
-           └── Apraksts
-
-3. FOOTER (apakšā)
-   └── Copyright + Sociālās saites
-
-==============================================
-KO MAINĪT:
-==============================================
-
-✏️  Rinda 14: Tavs vārds
-✏️  Rinda 27: Hero virsraksts
-✏️  Rinda 28: Hero apraksts
-✏️  Rinda 40-42: Projekts 1 info
-✏️  Rinda 49-51: Projekts 2 info
-✏️  Rinda 58-60: Projekts 3 info
-✏️  Rinda 71: Copyright vārds
-✏️  Rinda 75-79: Sociālo saišu URL
-==============================================
--->

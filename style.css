@@ -1,547 +1,644 @@
-/* ============================================
-   CSS RESET - Noņem pārlūka default stilus
-   ============================================ */
+:root {
+  --bg: #f3f3f0;
+  --text: #111111;
+  --muted: #6f6f6f;
+  --blue: #2142ff;
+  --card: #e8e8e3;
+}
 
 * {
-    /* ↑ Zvaigznīte (*) = selektors VISIEM elementiem */
-   
-    margin: 0;
-    /* ↑ Noņem visas ārējās atstarpes */
-   
-    padding: 0;
-    /* ↑ Noņem visas iekšējās atstarpes */
-   
-    box-sizing: border-box;
-    /* ↑ Padding un border IETILPST width/height */
-    /* Atvieglo izmēru aprēķinus */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ============================================
-   PAMATA BODY STILI
-   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-    /* ↑ Stili VISAM lapas saturam */
-   
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    /* ↑ Izmanto sistēmas fontu (Mac/Windows default) */
-    /* Sans-serif = bez dekoratīvām līnijām */
-   
-    line-height: 1.6;
-    /* ↑ Atstarpe starp teksta rindām (1.6x no fonta izmēra) */
-    /* Laba lasāmība */
-   
-    color: #1a1a1a;
-    /* ↑ Teksta krāsa - gandrīz melns (ne 100% melns) */
-    /* Hex kods: # + 6 simboli (RR GG BB) */
-   
-    background: #fafafa;
-    /* ↑ Lapas fona krāsa - gaišs pelēks */
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  padding: 28px 38px 44px;
 }
 
-/* ============================================
-   HEADER - Augšējā navigācijas josla
-   ============================================ */
-
-header {
-    /* ↑ Mērķē <header> tagu */
-   
-    padding: 2rem 4rem;
-    /* ↑ Iekšējās atstarpes: 2rem augšā/apakšā, 4rem kreisais/labais */
-    /* rem = relative unit (1rem ≈ 16px) */
-   
-    background: white;
-    /* ↑ Balts fons */
-   
-    border-bottom: 1px solid #e5e5e5;
-    /* ↑ Plāna pelēka līnija apakšā */
-    /* 1px biezums, solid līnija, #e5e5e5 krāsa */
+.page {
+  max-width: 1380px;
+  margin: 0 auto;
 }
 
-nav {
-    /* ↑ Mērķē <nav> tagu header iekšā */
-   
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+
+.site-header {
+  margin-bottom: 72px;
+}
+
+.site-name {
+  font-family: "Jacquarda Bastarda 9", serif;
+  font-size: clamp(44px, 5.2vw, 82px);
+  line-height: 0.95;
+  font-weight: 400;
+  color: var(--blue);
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.site-nav {
+  position: relative;
+  max-width: 1100px;
+  height: 42px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  position: absolute;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text);
+  text-transform: lowercase;
+}
+
+.nav-left {
+  left: 0;
+}
+
+.nav-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-right {
+  right: 0;
+}
+
+.nav-link.active {
+  color: var(--text);
+}
+
+/* LAYOUT */
+
+.portfolio-layout {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 18px;
+}
+
+.category-link {
+  border: none;
+  background: none;
+  text-align: left;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.category-link.active {
+  color: var(--text);
+}
+
+/* GRID */
+
+.works-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.3fr 0.72fr;
+  grid-auto-rows: 150px;
+  gap: 22px;
+}
+
+.work-card {
+  background: transparent;
+}
+
+.work-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* proportions */
+
+.portrait {
+  grid-column: 1;
+  grid-row: span 3;
+}
+
+.landscape {
+  grid-column: 2;
+  grid-row: span 2;
+}
+
+.square {
+  grid-column: 3;
+  grid-row: span 1;
+}
+
+.wide {
+  grid-column: 1 / span 2;
+  grid-row: span 2;
+}
+
+.tall {
+  grid-column: 3;
+  grid-row: span 3;
+}
+
+.small {
+  grid-column: 1;
+  grid-row: span 1;
+  max-width: 240px;
+}
+
+/* HOVER */
+
+.hover-pixel {
+  transition: color 0.2s ease, font-family 0.2s ease;
+}
+
+.hover-pixel:hover {
+  font-family: "Jacquarda Bastarda 9", serif;
+  color: var(--blue);
+}
+
+.work-image img {
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.work-image:hover img {
+  transform: scale(1.02);
+}
+
+/* TABLET */
+
+@media (max-width: 980px) {
+  body {
+    padding: 22px 20px 34px;
+  }
+
+  .site-header {
+    margin-bottom: 42px;
+  }
+
+  .site-name {
+    font-size: clamp(38px, 8vw, 62px);
+    margin-bottom: 20px;
+  }
+
+  .site-nav {
     display: flex;
-    /* ↑ Flexbox layout - elementi rindā */
-   
-    justify-content: space-between;
-    /* ↑ Izvieto elementus: viens kreisajā, otrs labajā pusē */
-   
-    align-items: center;
-    /* ↑ Centrē elementus vertikāli */
-   
-    max-width: 1400px;
-    /* ↑ Maksimālais platums (lai neizplūstu uz lielajiem ekrāniem) */
-   
-    margin: 0 auto;
-    /* ↑ Centrē horizontāli: 0 augšā/apakšā, auto kreisais/labais */
-}
-
-nav h1 {
-    /* ↑ Mērķē <h1> kas ir nav iekšā (logo/vārds) */
-   
-    font-size: 1rem;
-    /* ↑ Izmērs 1rem (≈16px) - mazs, minimālistisks */
-   
-    font-weight: 500;
-    /* ↑ Svars 500 (starp normal 400 un bold 700) */
-   
-    letter-spacing: -0.02em;
-    /* ↑ Samazina atstarpi starp burtiem (saspiež) */
-    /* Negatīvs = tuvāk kopā */
-}
-
-nav ul {
-    /* ↑ Mērķē <ul> sarakstu nav iekšā */
-   
-    list-style: none;
-    /* ↑ Noņem aizzīmes (bullet points) */
-   
-    display: flex;
-    /* ↑ Saraksta elementi rindā (ne pa vertikāli) */
-   
-    gap: 3rem;
-    /* ↑ Atstarpe starp saraksta elementiem */
-}
-
-nav a {
-    /* ↑ Mērķē VISAS saites (<a>) nav iekšā */
-   
-    color: #666;
-    /* ↑ Vidēji pelēka krāsa */
-   
-    text-decoration: none;
-    /* ↑ Noņem pasvītrojumu */
-   
-    font-size: 0.95rem;
-    /* ↑ Mazliet mazāks par normālo (15.2px) */
-   
-    transition: color 0.2s;
-    /* ↑ Smooth krāsas maiņa 0.2 sekundes */
-    /* Animē hover efektu */
-}
-
-nav a:hover {
-    /* ↑ Kad pele ir virs saites */
-   
-    color: #1a1a1a;
-    /* ↑ Kļūst tumšāka (gandrīz melna) */
-}
-
-/* ============================================
-   MAIN - Galvenais saturs
-   ============================================ */
-
-main {
-    /* ↑ Mērķē <main> tagu */
-   
-    max-width: 1400px;
-    /* ↑ Ierobežo platumu */
-   
-    margin: 0 auto;
-    /* ↑ Centrē horizontāli */
-   
-    padding: 0 4rem;
-    /* ↑ Padding: 0 augšā/apakšā, 4rem kreisais/labais */
-}
-
-/* ============================================
-   HERO SEKCIJA - Liela intro daļa
-   ============================================ */
-
-.hero {
-    /* ↑ Punkts (.) nozīmē CLASS selector */
-    /* Mērķē elementus ar class="hero" */
-   
-    padding: 8rem 0 6rem;
-    /* ↑ Padding: 8rem augšā, 0 kreisais/labais, 6rem apakšā */
-    /* Daudz vietas augšā un apakšā */
-}
-
-.hero h2 {
-    /* ↑ Mērķē <h2> kas ir .hero iekšā */
-   
-    font-size: 4rem;
-    /* ↑ Ļoti liels (64px) - galvenais virsraksts */
-   
-    font-weight: 300;
-    /* ↑ Plāns fonts (light) */
-    /* 300 ir viegls, 400 normāls, 700 treknraksts */
-   
-    letter-spacing: -0.03em;
-    /* ↑ Vēl vairāk saspiesti burti */
-   
-    margin-bottom: 1.5rem;
-    /* ↑ Atstarpe zem virsraksta */
-   
-    line-height: 1.1;
-    /* ↑ Mazāka atstarpe starp rindām (kompaktāks) */
-}
-
-.hero p {
-    /* ↑ Mērķē <p> kas ir .hero iekšā */
-   
-    font-size: 1.25rem;
-    /* ↑ Lielāks par normālo (20px) */
-   
-    color: #666;
-    /* ↑ Vidēji pelēks (vieglāks par virsrakstu) */
-   
-    font-weight: 300;
-    /* ↑ Plāns fonts */
-   
-    max-width: 600px;
-    /* ↑ Ierobežo teksta platumu (lasāmībai) */
-    /* Pārāk plats teksts ir grūti lasāms */
-}
-
-/* ============================================
-   PORTFOLIO SEKCIJA - Darbu galerija
-   ============================================ */
-
-.portfolio {
-    /* ↑ Mērķē elementus ar class="portfolio" */
-   
-    padding: 4rem 0 8rem;
-    /* ↑ Padding: 4rem augšā, 0 kreisais/labais, 8rem apakšā */
-}
-
-.portfolio h2 {
-    /* ↑ Virsraksts portfolio sekcijā */
-   
-    font-size: 0.875rem;
-    /* ↑ Mazs (14px) */
-   
-    text-transform: uppercase;
-    /* ↑ Visi burti LIELIE */
-   
-    letter-spacing: 0.1em;
-    /* ↑ Daudz vietas starp burtiem (plašāk) */
-    /* Pozitīvs = tālāk */
-   
-    color: #999;
-    /* ↑ Gaišs pelēks */
-   
-    margin-bottom: 4rem;
-    /* ↑ Liela atstarpe zem virsraksta */
-   
-    font-weight: 500;
-    /* ↑ Vidēji smags */
-}
-
-/* ============================================
-   GALERIJA - Projektu grid
-   ============================================ */
-
-.gallery {
-    /* ↑ Container projektu kartītēm */
-   
-    display: grid;
-    /* ↑ CSS Grid layout (nevis flexbox) */
-    /* Grid = 2D layout (rindas UN kolonnas) */
-   
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    /* ↑ MAĢIJA! Automātisks kolonnu skaits */
-    /* repeat = atkārto */
-    /* auto-fit = pielāgojas ekrāna platumam */
-    /* minmax(400px, 1fr) = minimums 400px, maksimums 1 daļa */
-    /* Rezultāts: 3 kolonnas plašam, 2 vidējam, 1 mobilajam */
-   
-    gap: 3rem;
-    /* ↑ Atstarpe starp grid elementiem */
-}
-
-/* ============================================
-   PROJEKTA KARTĪTE - Atsevišķs darbs
-   ============================================ */
-
-.project-card {
-    /* ↑ Vispārīgi stili VISĀM kartītēm */
-   
-    background: white;
-    /* ↑ Balts fons */
-   
-    transition: transform 0.3s ease;
-    /* ↑ Animē transform izmaiņas 0.3 sekundes */
-    /* ease = sākas lēni, paātrinās, beidzas lēni */
-   
-    cursor: pointer;
-    /* ↑ Kursors kļūst par rociņu (norāda, ka klikšķināms) */
-}
-
-.project-card:hover {
-    /* ↑ Kad pele ir virs kartītes */
-   
-    transform: translateY(-4px);
-    /* ↑ Paceļ kartīti 4px uz augšu */
-    /* Negatīvs Y = uz augšu, pozitīvs = uz leju */
-}
-
-.project-card .img-placeholder {
-    /* ↑ Attēla vietas holders */
-    /* Atstarpe starp .project-card un .img-placeholder = descendant selector */
-    /* Mērķē .img-placeholder KAS IR .project-card iekšā */
-   
-    width: 100%;
-    /* ↑ Pilns platums no vecāka elementa */
-   
-    aspect-ratio: 4/3;
-    /* ↑ Fiksēts platuma/augstuma attiecība */
-    /* 4:3 = standarta foto proporcija */
-    /* Automātiski aprēķina augstumu no platuma */
-   
-    display: flex;
-    /* ↑ Flexbox, lai centrētu saturu */
-   
-    align-items: center;
-    /* ↑ Centrē vertikāli */
-   
     justify-content: center;
-    /* ↑ Centrē horizontāli */
-   
-    font-size: 3rem;
-    /* ↑ Liels fonts (ja liek emoji vai tekstu) */
-   
-    background: #f5f5f5;
-    /* ↑ Gaišs pelēks fons (default) */
-   
-    margin-bottom: 1.5rem;
-    /* ↑ Atstarpe zem attēla */
+    gap: 28px;
+    height: auto;
+  }
+
+  .nav-link {
+    position: static;
+    transform: none;
+  }
+
+  .portfolio-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .categories {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding-top: 0;
+  }
+
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+
+  .portrait,
+  .landscape,
+  .square,
+  .wide,
+  .tall,
+  .small {
+    grid-column: auto;
+    grid-row: auto;
+    max-width: none;
+  }
 }
 
-/* Dažādas fona krāsas katrai kartītei */
+/* MOBILE */
 
-.card1 .img-placeholder {
-    /* ↑ Tikai pirmā kartīte (class="card1") */
-   
-    background: #f0f0f0;
-    /* ↑ Mazliet tumšāks pelēks */
+@media (max-width: 560px) {
+  body {
+    padding: 16px 14px 24px;
+  }
+
+  .site-name {
+    font-size: clamp(30px, 11vw, 46px);
+    line-height: 1;
+  }
+
+  .site-nav {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .nav-link,
+  .category-link {
+    font-size: 14px;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 240px;
+    gap: 16px;
+  }
+}
+:root {
+  --bg: #f3f3f0;
+  --text: #111111;
+  --muted: #6f6f6f;
+  --blue: #2142ff;
+  --card: #e8e8e3;
 }
 
-.card2 .img-placeholder {
-    /* ↑ Tikai otrā kartīte */
-   
-    background: #e8e8e8;
-    /* ↑ Vēl tumšāks */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.card3 .img-placeholder {
-    /* ↑ Tikai trešā kartīte */
-   
-    background: #f5f5f5;
-    /* ↑ Gaišs (tāds pats kā default) */
+html {
+  scroll-behavior: smooth;
 }
 
-.project-card h3 {
-    /* ↑ Projekta nosaukums kartītē */
-   
-    font-size: 1.25rem;
-    /* ↑ Vidēji liels (20px) */
-   
-    font-weight: 400;
-    /* ↑ Normāls svars (ne treknraksts) */
-   
-    color: #1a1a1a;
-    /* ↑ Gandrīz melns */
-   
-    margin-bottom: 0.5rem;
-    /* ↑ Neliela atstarpe zem nosaukuma */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  padding: 28px 38px 44px;
 }
 
-.project-card p {
-    /* ↑ Projekta apraksts kartītē */
-   
-    color: #666;
-    /* ↑ Vidēji pelēks (vieglāks par nosaukumu) */
-   
-    font-size: 0.95rem;
-    /* ↑ Mazliet mazāks (15.2px) */
-   
-    font-weight: 300;
-    /* ↑ Plāns fonts */
+.page {
+  max-width: 1380px;
+  margin: 0 auto;
 }
 
-/* ============================================
-   FOOTER - Apakšējā daļa
-   ============================================ */
-
-footer {
-    /* ↑ Mērķē <footer> tagu */
-   
-    background: white;
-    /* ↑ Balts fons */
-   
-    border-top: 1px solid #e5e5e5;
-    /* ↑ Plāna pelēka līnija AUGŠĀ */
-   
-    padding: 3rem 4rem;
-    /* ↑ Padding: 3rem augšā/apakšā, 4rem kreisais/labais */
-   
-    margin-top: 4rem;
-    /* ↑ Liela atstarpe virs footer */
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.footer-content {
-    /* ↑ Container footer saturam */
-   
-    max-width: 1400px;
-    /* ↑ Ierobežo platumu */
-   
-    margin: 0 auto;
-    /* ↑ Centrē horizontāli */
-   
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+
+.site-header {
+  margin-bottom: 72px;
+}
+
+.site-name {
+  font-family: "Jacquarda Bastarda 9", serif;
+  font-size: clamp(38px, 4.4vw, 68px);
+  line-height: 0.95;
+  font-weight: 400;
+  color: var(--blue);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.site-nav {
+  position: relative;
+  max-width: 1100px;
+  height: 32px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  position: absolute;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text);
+  text-transform: lowercase;
+}
+
+.nav-left {
+  left: 0;
+}
+
+.nav-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-right {
+  right: 0;
+}
+
+/* LAYOUT */
+
+.portfolio-layout {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 18px;
+  position: sticky;
+  top: 20px;
+}
+
+.category-link {
+  border: none;
+  background: none;
+  text-align: left;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.category-link.active {
+  color: var(--blue);
+  font-family: "Jacquarda Bastarda 9", serif;
+}
+
+/* GRID */
+
+.works-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.3fr 0.72fr;
+  grid-auto-rows: 150px;
+  gap: 22px;
+}
+
+.work-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.work-card.hidden {
+  display: none;
+}
+
+.work-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--card);
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+}
+
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease, filter 0.45s ease, opacity 0.45s ease;
+}
+
+.work-image:hover img {
+  transform: scale(1.02);
+  filter: brightness(1.02);
+}
+
+/* proportions */
+
+.portrait {
+  grid-column: 1;
+  grid-row: span 3;
+}
+
+.landscape {
+  grid-column: 2;
+  grid-row: span 2;
+}
+
+.square {
+  grid-column: 3;
+  grid-row: span 1;
+}
+
+.wide {
+  grid-column: 1 / span 2;
+  grid-row: span 2;
+}
+
+.tall {
+  grid-column: 3;
+  grid-row: span 3;
+}
+
+.small {
+  grid-column: 1;
+  grid-row: span 1;
+  max-width: 240px;
+}
+
+/* HOVER TEXT */
+
+.hover-pixel {
+  transition: color 0.2s ease, font-family 0.2s ease;
+}
+
+.hover-pixel:hover {
+  font-family: "Jacquarda Bastarda 9", serif;
+  color: var(--blue);
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(243, 243, 240, 0.96);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  z-index: 999;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-inner {
+  max-width: min(92vw, 1300px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-caption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  border: none;
+  background: none;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* TABLET */
+
+@media (max-width: 980px) {
+  body {
+    padding: 22px 20px 34px;
+  }
+
+  .site-header {
+    margin-bottom: 42px;
+  }
+
+  .site-name {
+    font-size: clamp(34px, 8vw, 54px);
+    margin-bottom: 18px;
+  }
+
+  .site-nav {
     display: flex;
-    /* ↑ Flexbox layout */
-   
-    justify-content: space-between;
-    /* ↑ Copyright kreisajā, saites labajā pusē */
-   
-    align-items: center;
-    /* ↑ Centrē vertikāli */
+    justify-content: center;
+    gap: 28px;
+    height: auto;
+  }
+
+  .nav-link {
+    position: static;
+    transform: none;
+  }
+
+  .portfolio-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .categories {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding-top: 0;
+    position: static;
+  }
+
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+
+  .portrait,
+  .landscape,
+  .square,
+  .wide,
+  .tall,
+  .small {
+    grid-column: auto;
+    grid-row: auto;
+    max-width: none;
+  }
 }
 
-footer p {
-    /* ↑ Copyright teksts */
-   
-    color: #999;
-    /* ↑ Gaišs pelēks */
-   
-    font-size: 0.875rem;
-    /* ↑ Mazs (14px) */
+/* MOBILE */
+
+@media (max-width: 560px) {
+  body {
+    padding: 16px 14px 24px;
+  }
+
+  .site-name {
+    font-size: clamp(28px, 10vw, 42px);
+    line-height: 1;
+  }
+
+  .site-nav {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .nav-link,
+  .category-link,
+  .lightbox-close {
+    font-size: 14px;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 240px;
+    gap: 16px;
+  }
+
+  .lightbox {
+    padding: 16px;
+  }
+
+  .lightbox-close {
+    top: 16px;
+    right: 16px;
+  }
+
+  .lightbox img {
+    max-height: 75vh;
+  }
 }
-
-.social-links {
-    /* ↑ Container sociālajām saitēm */
-   
-    display: flex;
-    /* ↑ Saites rindā */
-   
-    gap: 2rem;
-    /* ↑ Atstarpe starp saitēm */
-}
-
-.social-links a {
-    /* ↑ Atsevišķa sociālā saite */
-   
-    color: #666;
-    /* ↑ Vidēji pelēks */
-   
-    text-decoration: none;
-    /* ↑ Bez pasvītrojuma */
-   
-    font-size: 0.875rem;
-    /* ↑ Mazs (14px) */
-   
-    transition: color 0.2s;
-    /* ↑ Smooth krāsas maiņa */
-}
-
-.social-links a:hover {
-    /* ↑ Kad pele virs saites */
-   
-    color: #1a1a1a;
-    /* ↑ Kļūst tumšāka */
-}
-
-/* ============================================
-   RESPONSIVE - Mobilajiem telefoniem
-   ============================================ */
-
-@media (max-width: 768px) {
-    /* ↑ Media query = CSS kas darbojas TIK JA... */
-    /* max-width: 768px = ekrāns 768px vai mazāks */
-    /* Tipiskais tablet/phone breakpoint */
-   
-    header, main, footer {
-        /* ↑ Visiem trim elementiem */
-       
-        padding-left: 2rem;
-        padding-right: 2rem;
-        /* ↑ Mazāks padding sānos (4rem → 2rem) */
-        /* Vairāk vietas šaurā ekrānā */
-    }
-
-    nav {
-        /* ↑ Navigācija mobilajā */
-       
-        flex-direction: column;
-        /* ↑ Elementi pa vertikāli (ne horizontāli) */
-        /* Logo virs menu */
-       
-        gap: 1.5rem;
-        /* ↑ Atstarpe starp logo un menu */
-       
-        align-items: flex-start;
-        /* ↑ Izlīdzina pa kreisi (nevis centru) */
-    }
-
-    nav ul {
-        /* ↑ Menu saraksts mobilajā */
-       
-        gap: 2rem;
-        /* ↑ Mazāka atstarpe (3rem → 2rem) */
-    }
-
-    .hero {
-        /* ↑ Hero sekcija mobilajā */
-       
-        padding: 4rem 0 3rem;
-        /* ↑ Mazāks padding (8rem → 4rem, 6rem → 3rem) */
-    }
-
-    .hero h2 {
-        /* ↑ Hero virsraksts mobilajā */
-       
-        font-size: 2.5rem;
-        /* ↑ Mazāks (4rem → 2.5rem = 64px → 40px) */
-    }
-
-    .hero p {
-        /* ↑ Hero teksts mobilajā */
-       
-        font-size: 1.1rem;
-        /* ↑ Mazāks (1.25rem → 1.1rem) */
-    }
-
-    .gallery {
-        /* ↑ Projektu grid mobilajā */
-       
-        grid-template-columns: 1fr;
-        /* ↑ TIK 1 kolonna (nevis 2-3) */
-        /* Visi projekti pa vertikāli */
-    }
-
-    .footer-content {
-        /* ↑ Footer saturs mobilajā */
-       
-        flex-direction: column;
-        /* ↑ Elementi pa vertikāli */
-        /* Copyright virs saitēm */
-       
-        gap: 1.5rem;
-        /* ↑ Atstarpe starp elementiem */
-       
-        align-items: flex-start;
-        /* ↑ Izlīdzina pa kreisi */
-    }
-}
-
-/* ============================================
-   KOPSAVILKUMS - KO MAINĪT:
-   ============================================
-   
-   KRĀSAS:
-   - Rinda 32: Teksta krāsa (#1a1a1a)
-   - Rinda 35: Fona krāsa (#fafafa)
-   - Rinda 54: Header fons (white)
-   
-   IZMĒRI:
-   - Rinda 139: Hero virsraksts (4rem)
-   - Rinda 227: Galvenā platums (1400px)
-   
-   FONTI:
-   - Rinda 26: Font family
-   
-   ============================================ */
-
-
