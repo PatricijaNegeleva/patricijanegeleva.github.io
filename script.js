@@ -1,3 +1,6 @@
+const navButtons = document.querySelectorAll(".nav-link");
+const sections = document.querySelectorAll(".content-section");
+
 const categoryButtons = document.querySelectorAll(".category-link");
 const workCards = document.querySelectorAll(".work-card");
 
@@ -7,6 +10,30 @@ const lightboxCaption = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 const workImages = document.querySelectorAll(".work-image");
 
+/* navigation inside one page */
+navButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const targetSection = button.dataset.section;
+
+    navButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    sections.forEach((section) => {
+      if (section.id === targetSection) {
+        section.classList.add("active");
+      } else {
+        section.classList.remove("active");
+      }
+    });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+});
+
+/* category filter */
 categoryButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
@@ -26,6 +53,7 @@ categoryButtons.forEach((button) => {
   });
 });
 
+/* lightbox */
 workImages.forEach((button) => {
   button.addEventListener("click", () => {
     const imageSrc = button.dataset.full;

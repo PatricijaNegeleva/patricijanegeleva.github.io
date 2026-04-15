@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patricija Negeleva — Darbi</title>
+  <title>Patricija Negeleva</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,165 +15,197 @@
   <div class="page">
 
     <header class="site-header">
-      <h1 class="site-name">Patricija Negeleva</h1>
+      <h1 class="site-name">Patrīcija Ņegeļeva</h1>
 
       <nav class="site-nav">
-        <a href="index.html" class="nav-link hover-pixel nav-left active">darbi</a>
-        <a href="about.html" class="nav-link hover-pixel nav-center">par mani</a>
-        <a href="contact.html" class="nav-link hover-pixel nav-right">kontakti</a>
+        <button class="nav-link nav-left hover-pixel active" type="button" data-section="darbi">darbi</button>
+        <button class="nav-link nav-center hover-pixel" type="button" data-section="par-mani">par mani</button>
+        <button class="nav-link nav-right hover-pixel" type="button" data-section="kontakti">kontakti</button>
       </nav>
     </header>
 
-    <main class="portfolio-layout">
-      <aside class="categories">
-        <button class="category-link hover-pixel active" type="button" data-filter="all">visi</button>
-        <button class="category-link hover-pixel" type="button" data-filter="foto">foto</button>
-        <button class="category-link hover-pixel" type="button" data-filter="video">video</button>
-        <button class="category-link hover-pixel" type="button" data-filter="grafika">grafika</button>
-        <button class="category-link hover-pixel" type="button" data-filter="3d">3D</button>
-      </aside>
+    <main class="content">
 
-      <section class="works-grid">
+      <!-- DARBI -->
+      <section class="content-section active" id="darbi">
+        <div class="portfolio-layout">
+          <aside class="categories">
+            <button class="category-link hover-pixel active" type="button" data-filter="all">visi</button>
+            <button class="category-link hover-pixel" type="button" data-filter="foto">foto</button>
+            <button class="category-link hover-pixel" type="button" data-filter="video">video</button>
+            <button class="category-link hover-pixel" type="button" data-filter="grafika">grafika</button>
+            <button class="category-link hover-pixel" type="button" data-filter="3d">3D</button>
+          </aside>
 
-        <article class="work-card portrait" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7481.jpg" data-title="IMG_7481">
-            <img src="foto/IMG_7481.jpg" alt="IMG_7481" />
-          </button>
-        </article>
+          <section class="works-grid">
 
-        <article class="work-card landscape" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7482.jpg" data-title="IMG_7482">
-            <img src="foto/IMG_7482.jpg" alt="IMG_7482" />
-          </button>
-        </article>
+            <article class="work-card work-card--tall" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7481.jpg" data-title="IMG_7481">
+                <img src="foto/IMG_7481.jpg" alt="IMG_7481" />
+              </button>
+            </article>
 
-        <article class="work-card square" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7488.jpg" data-title="IMG_7488">
-            <img src="foto/IMG_7488.jpg" alt="IMG_7488" />
-          </button>
-        </article>
+            <article class="work-card work-card--medium" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7482.jpg" data-title="IMG_7482">
+                <img src="foto/IMG_7482.jpg" alt="IMG_7482" />
+              </button>
+            </article>
 
-        <article class="work-card wide" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7489 2.jpg" data-title="IMG_7489 2">
-            <img src="foto/IMG_7489 2.jpg" alt="IMG_7489 2" />
-          </button>
-        </article>
+            <article class="work-card work-card--small" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7488.jpg" data-title="IMG_7488">
+                <img src="foto/IMG_7488.jpg" alt="IMG_7488" />
+              </button>
+            </article>
 
-        <article class="work-card tall" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7490.jpg" data-title="IMG_7490">
-            <img src="foto/IMG_7490.jpg" alt="IMG_7490" />
-          </button>
-        </article>
+            <article class="work-card work-card--wide" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7489 2.jpg" data-title="IMG_7489 2">
+                <img src="foto/IMG_7489 2.jpg" alt="IMG_7489 2" />
+              </button>
+            </article>
 
-        <article class="work-card small" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7491.jpg" data-title="IMG_7491">
-            <img src="foto/IMG_7491.jpg" alt="IMG_7491" />
-          </button>
-        </article>
+            <article class="work-card work-card--tall-right" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7490.jpg" data-title="IMG_7490">
+                <img src="foto/IMG_7490.jpg" alt="IMG_7490" />
+              </button>
+            </article>
 
-        <article class="work-card landscape" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7492 2.jpg" data-title="IMG_7492 2">
-            <img src="foto/IMG_7492 2.jpg" alt="IMG_7492 2" />
-          </button>
-        </article>
+            <article class="work-card work-card--small-left" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7491.jpg" data-title="IMG_7491">
+                <img src="foto/IMG_7491.jpg" alt="IMG_7491" />
+              </button>
+            </article>
 
-        <article class="work-card square" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7493 2.jpg" data-title="IMG_7493 2">
-            <img src="foto/IMG_7493 2.jpg" alt="IMG_7493 2" />
-          </button>
-        </article>
+            <article class="work-card work-card--medium" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7492 2.jpg" data-title="IMG_7492 2">
+                <img src="foto/IMG_7492 2.jpg" alt="IMG_7492 2" />
+              </button>
+            </article>
 
-        <article class="work-card wide" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7493.jpg" data-title="IMG_7493">
-            <img src="foto/IMG_7493.jpg" alt="IMG_7493" />
-          </button>
-        </article>
+            <article class="work-card work-card--small" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7493 2.jpg" data-title="IMG_7493 2">
+                <img src="foto/IMG_7493 2.jpg" alt="IMG_7493 2" />
+              </button>
+            </article>
 
-        <article class="work-card portrait" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7494.jpg" data-title="IMG_7494">
-            <img src="foto/IMG_7494.jpg" alt="IMG_7494" />
-          </button>
-        </article>
+            <article class="work-card work-card--wide" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7493.jpg" data-title="IMG_7493">
+                <img src="foto/IMG_7493.jpg" alt="IMG_7493" />
+              </button>
+            </article>
 
-        <article class="work-card landscape" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7495.jpg" data-title="IMG_7495">
-            <img src="foto/IMG_7495.jpg" alt="IMG_7495" />
-          </button>
-        </article>
+            <article class="work-card work-card--tall" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7494.jpg" data-title="IMG_7494">
+                <img src="foto/IMG_7494.jpg" alt="IMG_7494" />
+              </button>
+            </article>
 
-        <article class="work-card square" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7496.jpg" data-title="IMG_7496">
-            <img src="foto/IMG_7496.jpg" alt="IMG_7496" />
-          </button>
-        </article>
+            <article class="work-card work-card--medium" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7495.jpg" data-title="IMG_7495">
+                <img src="foto/IMG_7495.jpg" alt="IMG_7495" />
+              </button>
+            </article>
 
-        <article class="work-card wide" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_7497.jpg" data-title="IMG_7497">
-            <img src="foto/IMG_7497.jpg" alt="IMG_7497" />
-          </button>
-        </article>
+            <article class="work-card work-card--small" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7496.jpg" data-title="IMG_7496">
+                <img src="foto/IMG_7496.jpg" alt="IMG_7496" />
+              </button>
+            </article>
 
-        <article class="work-card tall" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_9575.jpg" data-title="IMG_9575">
-            <img src="foto/IMG_9575.jpg" alt="IMG_9575" />
-          </button>
-        </article>
+            <article class="work-card work-card--wide" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_7497.jpg" data-title="IMG_7497">
+                <img src="foto/IMG_7497.jpg" alt="IMG_7497" />
+              </button>
+            </article>
 
-        <article class="work-card landscape" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_9576.jpg" data-title="IMG_9576">
-            <img src="foto/IMG_9576.jpg" alt="IMG_9576" />
-          </button>
-        </article>
+            <article class="work-card work-card--tall-right" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_9575.jpg" data-title="IMG_9575">
+                <img src="foto/IMG_9575.jpg" alt="IMG_9575" />
+              </button>
+            </article>
 
-        <article class="work-card square" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_9577.jpg" data-title="IMG_9577">
-            <img src="foto/IMG_9577.jpg" alt="IMG_9577" />
-          </button>
-        </article>
+            <article class="work-card work-card--medium" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_9576.jpg" data-title="IMG_9576">
+                <img src="foto/IMG_9576.jpg" alt="IMG_9576" />
+              </button>
+            </article>
 
-        <article class="work-card wide" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_9578.jpg" data-title="IMG_9578">
-            <img src="foto/IMG_9578.jpg" alt="IMG_9578" />
-          </button>
-        </article>
+            <article class="work-card work-card--small" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_9577.jpg" data-title="IMG_9577">
+                <img src="foto/IMG_9577.jpg" alt="IMG_9577" />
+              </button>
+            </article>
 
-        <article class="work-card portrait" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_9579.jpg" data-title="IMG_9579">
-            <img src="foto/IMG_9579.jpg" alt="IMG_9579" />
-          </button>
-        </article>
+            <article class="work-card work-card--wide" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_9578.jpg" data-title="IMG_9578">
+                <img src="foto/IMG_9578.jpg" alt="IMG_9578" />
+              </button>
+            </article>
 
-        <article class="work-card landscape" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_9580.jpg" data-title="IMG_9580">
-            <img src="foto/IMG_9580.jpg" alt="IMG_9580" />
-          </button>
-        </article>
+            <article class="work-card work-card--tall" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_9579.jpg" data-title="IMG_9579">
+                <img src="foto/IMG_9579.jpg" alt="IMG_9579" />
+              </button>
+            </article>
 
-        <article class="work-card square" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_9581.jpg" data-title="IMG_9581">
-            <img src="foto/IMG_9581.jpg" alt="IMG_9581" />
-          </button>
-        </article>
+            <article class="work-card work-card--medium" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_9580.jpg" data-title="IMG_9580">
+                <img src="foto/IMG_9580.jpg" alt="IMG_9580" />
+              </button>
+            </article>
 
-        <article class="work-card wide" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/IMG_9582.jpg" data-title="IMG_9582">
-            <img src="foto/IMG_9582.jpg" alt="IMG_9582" />
-          </button>
-        </article>
+            <article class="work-card work-card--small" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_9581.jpg" data-title="IMG_9581">
+                <img src="foto/IMG_9581.jpg" alt="IMG_9581" />
+              </button>
+            </article>
 
-        <article class="work-card tall" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/VKN_patricija11.JPG" data-title="VKN_patricija11">
-            <img src="foto/VKN_patricija11.JPG" alt="VKN_patricija11" />
-          </button>
-        </article>
+            <article class="work-card work-card--wide" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/IMG_9582.jpg" data-title="IMG_9582">
+                <img src="foto/IMG_9582.jpg" alt="IMG_9582" />
+              </button>
+            </article>
 
-        <article class="work-card landscape" data-category="foto">
-          <button class="work-image" type="button" data-full="foto/VKN_patricija12.JPG" data-title="VKN_patricija12">
-            <img src="foto/VKN_patricija12.JPG" alt="VKN_patricija12" />
-          </button>
-        </article>
+            <article class="work-card work-card--tall-right" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/VKN_patricija11.JPG" data-title="VKN_patricija11">
+                <img src="foto/VKN_patricija11.JPG" alt="VKN_patricija11" />
+              </button>
+            </article>
 
+            <article class="work-card work-card--medium" data-category="foto">
+              <button class="work-image" type="button" data-full="foto/VKN_patricija12.JPG" data-title="VKN_patricija12">
+                <img src="foto/VKN_patricija12.JPG" alt="VKN_patricija12" />
+              </button>
+            </article>
+
+          </section>
+        </div>
       </section>
+
+      <!-- PAR MANI -->
+      <section class="content-section text-page" id="par-mani">
+        <div class="text-page-inner">
+          <h2 class="page-title">par mani</h2>
+          <p>
+            Šeit vari ievietot tekstu par sevi, savu mākslas praksi, interesēm,
+            tehnikām, izstādēm un iedvesmām.
+          </p>
+          <p>
+            Vari rakstīt pavisam īsi un tīri — tieši tā, kā ir tavos references:
+            maz teksta, daudz gaisa, skaidra struktūra.
+          </p>
+        </div>
+      </section>
+
+      <!-- KONTAKTI -->
+      <section class="content-section text-page" id="kontakti">
+        <div class="text-page-inner">
+          <h2 class="page-title">kontakti</h2>
+          <p><a href="mailto:example@email.com" class="hover-pixel">example@email.com</a></p>
+          <p><a href="#" class="hover-pixel">instagram</a></p>
+          <p><a href="#" class="hover-pixel">behance</a></p>
+        </div>
+      </section>
+
     </main>
   </div>
 
