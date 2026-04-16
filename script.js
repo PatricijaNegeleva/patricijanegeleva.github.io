@@ -10,7 +10,7 @@ const lightboxCaption = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 const workImages = document.querySelectorAll(".work-image");
 
-/* navigation inside one page */
+/* one-page navigation */
 navButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const targetSection = button.dataset.section;
@@ -19,16 +19,7 @@ navButtons.forEach((button) => {
     button.classList.add("active");
 
     sections.forEach((section) => {
-      if (section.id === targetSection) {
-        section.classList.add("active");
-      } else {
-        section.classList.remove("active");
-      }
-    });
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+      section.classList.toggle("active", section.id === targetSection);
     });
   });
 });
@@ -43,12 +34,9 @@ categoryButtons.forEach((button) => {
 
     workCards.forEach((card) => {
       const category = card.dataset.category;
+      const shouldShow = filter === "all" || category === filter;
 
-      if (filter === "all" || category === filter) {
-        card.classList.remove("hidden");
-      } else {
-        card.classList.add("hidden");
-      }
+      card.classList.toggle("hidden", !shouldShow);
     });
   });
 });
@@ -90,3 +78,19 @@ document.addEventListener("keydown", (event) => {
     closeLightbox();
   }
 });
+
+/* about image hover swap */
+const aboutImage = document.getElementById("aboutImage");
+
+if (aboutImage) {
+  const defaultSrc = aboutImage.dataset.default;
+  const hoverSrc = aboutImage.dataset.hover;
+
+  aboutImage.addEventListener("mouseenter", () => {
+    aboutImage.src = hoverSrc;
+  });
+
+  aboutImage.addEventListener("mouseleave", () => {
+    aboutImage.src = defaultSrc;
+  });
+}
