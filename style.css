@@ -17,12 +17,33 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
   color: var(--text);
   padding: 30px 40px;
   background: var(--bg);
   overflow-x: hidden;
 }
+body,
+p,
+a,
+span,
+div,
+button,
+.site-nav,
+.nav-link,
+.categories,
+.category-link,
+.page-title,
+.text-page p,
+.about-text,
+.lightbox-caption,
+.lightbox-close {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
 
 /* pattern layer */
 body::before {
@@ -31,14 +52,12 @@ body::before {
   inset: 0;
   z-index: -2;
   pointer-events: none;
-
   background-image: url("foto/pattern.jpg");
   background-repeat: repeat;
   background-size: 560px;
   background-position: left top;
   animation: bgMove 140s linear infinite;
   opacity: 1;
-
   -webkit-mask-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 1) 0%,
@@ -149,18 +168,11 @@ button:active {
   font-size: 22px;
   font-weight: 400;
   padding: 2px 4px;
-  border: none;
-  outline: none;
 }
 
 .nav-link.active {
   color: var(--blue);
   font-family: "Jacquarda Bastarda 9", serif;
-}
-
-.nav-link:focus-visible {
-  outline: none;
-  box-shadow: none;
 }
 
 /* CONTENT */
@@ -225,6 +237,7 @@ button:active {
 .work-image {
   width: 100%;
   display: block;
+  position: relative;
 }
 
 .work-image img {
@@ -245,6 +258,43 @@ button:active {
   filter: brightness(1.02);
 }
 
+/* VIDEO THUMB */
+.video-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.14) 0%,
+    rgba(0, 0, 0, 0.04) 42%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  pointer-events: none;
+}
+
+.play-badge {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Jacquarda Bastarda 9", serif;
+  font-size: 24px;
+  color: var(--blue);
+  background: rgba(244, 243, 239, 0.95);
+  border: 1px solid rgba(33, 66, 255, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease;
+  z-index: 2;
+}
+
+.video-thumb:hover .play-badge {
+  transform: scale(1.06);
+}
+
 /* TEXT PAGES */
 .text-page-inner {
   max-width: 760px;
@@ -254,6 +304,7 @@ button:active {
 .page-title {
   font-size: 28px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .text-page p {
@@ -264,18 +315,24 @@ button:active {
 
 /* ABOUT */
 .about-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 48px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .about-image-wrap {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .about-image {
-  width: 100%;
+  width: min(320px, 100%);
   height: auto;
   display: block;
   box-shadow: var(--soft-shadow);
@@ -287,7 +344,9 @@ button:active {
 }
 
 .about-text {
-  min-width: 0;
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* LINKS */
@@ -310,7 +369,7 @@ a {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(244, 243, 239, 0.96);
+  background: rgba(244, 243, 239, 0.97);
   display: none;
   align-items: center;
   justify-content: center;
@@ -323,12 +382,13 @@ a {
 }
 
 .lightbox-inner {
-  max-width: 92vw;
+  width: 100%;
+  max-width: 1280px;
   max-height: 90vh;
   text-align: center;
 }
 
-.lightbox img {
+#lightboxMedia img {
   max-width: 100%;
   max-height: 82vh;
   width: auto;
@@ -339,13 +399,38 @@ a {
 
 .lightbox-caption {
   font-size: 16px;
+  text-align: center;
 }
 
 .lightbox-close {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 18px;
+  top: 18px;
+  right: 22px;
+  font-family: "Jacquarda Bastarda 9", serif;
+  font-size: 38px;
+  color: var(--blue);
+  line-height: 1;
+  padding: 4px 10px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.06);
+  opacity: 0.85;
+}
+
+/* VIDEO LIGHTBOX */
+.lightbox-video-wrap {
+  width: min(1280px, 96vw);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto 14px;
+}
+
+.lightbox-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
 }
 
 /* TABLET */
@@ -404,14 +489,18 @@ a {
   }
 
   .about-layout {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
     max-width: 700px;
-    margin: 0 auto;
   }
 
-  .about-image-wrap {
-    max-width: 260px;
+  .about-image {
+    width: min(280px, 100%);
+  }
+
+  .play-badge {
+    width: 48px;
+    height: 48px;
+    font-size: 21px;
   }
 }
 
@@ -442,97 +531,32 @@ a {
   }
 
   .work-card {
-   .work-card {
-  margin-bottom: 26px !important;
-}
+    margin-bottom: 26px !important;
+  }
+
   .text-page p {
     font-size: 16px;
   }
 
-  .about-image-wrap {
-    max-width: 220px;
+  .about-image {
+    width: min(240px, 100%);
   }
-}
-.work-card.hidden {
-  display: none;
-}
-#lightboxMedia img {
-  max-width: 100%;
-  max-height: 82vh;
-  width: auto;
-  height: auto;
-  display: block;
-  margin: 0 auto 14px;
-}
 
-.lightbox-video-wrap {
-  width: min(1100px, 92vw);
-  aspect-ratio: 16 / 9;
-  margin: 0 auto 14px;
-}
+  .lightbox {
+    padding: 16px;
+  }
 
-.lightbox-video-wrap iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: none;
-}
+  .lightbox-close {
+    top: 10px;
+    right: 12px;
+    font-size: 32px;
+  }
 
-.video-thumb {
-  position: relative;
-}
-
-.play-badge {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  font-size: 18px;
-  line-height: 1;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 8px 10px;
-}
-/* ===== VIDEO LIGHTBOX ===== */
-
-.lightbox-inner {
-  width: 100%;
-  max-width: 1280px;
-  max-height: 90vh;
-  text-align: center;
-}
-
-#lightboxMedia img {
-  max-width: 100%;
-  max-height: 82vh;
-  width: auto;
-  height: auto;
-  display: block;
-  margin: 0 auto 14px;
-}
-
-.lightbox-video-wrap {
-  width: min(1280px, 96vw);
-  aspect-ratio: 16 / 9;
-  margin: 0 auto 14px;
-}
-
-.lightbox-video-wrap iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: none;
-}
-
-/* play icon */
-.video-thumb {
-  position: relative;
-}
-
-.play-badge {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  font-size: 18px;
-  line-height: 1;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 8px 10px;
+  .play-badge {
+    right: 12px;
+    bottom: 12px;
+    width: 44px;
+    height: 44px;
+    font-size: 19px;
+  }
 }
