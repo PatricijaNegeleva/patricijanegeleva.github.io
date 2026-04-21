@@ -3,14 +3,57 @@ const sections = document.querySelectorAll(".content-section");
 
 const categoryButtons = document.querySelectorAll(".category-link");
 const workCards = document.querySelectorAll(".work-card");
+const worksGrid = document.querySelector(".works-grid");
 
 const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightboxImage");
+const lightboxMedia = document.getElementById("lightboxMedia");
 const lightboxCaption = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 const workImages = document.querySelectorAll(".work-image");
 
-/* one-page navigation */
+/* shuffle */
+function shuffleArray(array) {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+}
+
+function shuffleWorks() {
+  if (!worksGrid) return;
+
+  const cards = Array.from(document.querySelectorAll(".work-card"));
+  const shuffledCards = shuffleArray(cards);
+
+  shuffledCards.forEach((card) => {
+    worksGrid.appendChild(card);
+  });
+}
+
+/* spacing */
+function randomBetween(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function applyCuratedSpacing() {
+  const cards = Array.from(document.querySelectorAll(".work-card"));
+
+  cards.forEach((card, index) => {
+    let gap = randomBetween(22, 42);
+
+    if (index % 5 === 0) gap = randomBetween(48, 78);
+    if (index % 8 === 0) gap = randomBetween(60, 96);
+
+    card.style.marginBottom = `${gap}px`;
+  });
+}
+
+shuffleWorks();
+applyCuratedSpacing();
+
+/* navigation */
 navButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const targetSection = button.dataset.section;
@@ -24,7 +67,7 @@ navButtons.forEach((button) => {
   });
 });
 
-/* category filter */
+/* filter */
 categoryButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
@@ -35,32 +78,55 @@ categoryButtons.forEach((button) => {
     workCards.forEach((card) => {
       const category = card.dataset.category;
       const shouldShow = filter === "all" || category === filter;
-
       card.classList.toggle("hidden", !shouldShow);
     });
+
+    applyCuratedSpacing();
   });
 });
 
 /* lightbox */
 workImages.forEach((button) => {
   button.addEventListener("click", () => {
-    const imageSrc = button.dataset.full;
-    const imageTitle = button.dataset.title || "";
+    const mediaType = button.dataset.type || "image";
+    const title = button.dataset.title || "";
 
-    lightboxImage.src = imageSrc;
-    lightboxImage.alt = imageTitle;
-    lightboxCaption.textContent = imageTitle;
+    lightboxCaption.textContent = title;
+    lightboxMedia.innerHTML = "";
+
+    if (mediaType === "video") {
+      const videoUrl = button.dataset.video;
+
+      lightboxMedia.innerHTML = `
+        <div class="lightbox-video-wrap">
+          <iframe
+            src="${videoUrl}"
+            title="${title}"
+            frameborder="0"
+            allow="encrypted-media; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `;
+    } else {
+      const imageSrc = button.dataset.full;
+
+      lightboxMedia.innerHTML = `
+        <img src="${imageSrc}" alt="${title}" />
+      `;
+    }
+
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
   });
 });
 
+/* close */
 function closeLightbox() {
   lightbox.classList.remove("open");
   lightbox.setAttribute("aria-hidden", "true");
-  lightboxImage.src = "";
-  lightboxImage.alt = "";
+  lightboxMedia.innerHTML = "";
   lightboxCaption.textContent = "";
   document.body.style.overflow = "";
 }
@@ -79,7 +145,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-/* about image hover swap */
+/* about image hover */
 const aboutImage = document.getElementById("aboutImage");
 
 if (aboutImage) {
