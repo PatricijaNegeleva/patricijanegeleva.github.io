@@ -1,6 +1,6 @@
 const navButtons = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll(".content-section");
-
+const backToTop = document.getElementById("backToTop");
 const categoryButtons = document.querySelectorAll(".category-link");
 const workCards = document.querySelectorAll(".work-card");
 const worksGrid = document.querySelector(".works-grid");
@@ -158,5 +158,27 @@ if (aboutImage) {
 
   aboutImage.addEventListener("mouseleave", () => {
     aboutImage.src = defaultSrc;
+  });
+}
+/* back to top */
+function toggleBackToTop() {
+  if (!backToTop) return;
+
+  if (window.scrollY > 280) {
+    backToTop.classList.add("visible");
+  } else {
+    backToTop.classList.remove("visible");
+  }
+}
+
+window.addEventListener("scroll", toggleBackToTop);
+window.addEventListener("load", toggleBackToTop);
+
+if (backToTop) {
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   });
 }

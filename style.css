@@ -18,9 +18,24 @@ html {
 
 body {
 
+body {
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 300;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.01em;;
+}
+p,
+a,
+span,
+button,
+.category-link,
+.nav-link,
+.page-title,
+.about-text,
+.text-page,
+.lightbox-caption {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 300;
+}
   color: var(--text);
   padding: 30px 40px;
   background: var(--bg);
@@ -274,21 +289,25 @@ button:active {
 
 .play-badge {
   position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 54px;
-  height: 54px;
+  right: 14px;
+  bottom: 14px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Jacquarda Bastarda 9", serif;
-  font-size: 24px;
+  font-size: 16px;
   color: var(--blue);
-  background: rgba(244, 243, 239, 0.95);
+  background: rgba(244, 243, 239, 0.94);
   border: 1px solid rgba(33, 66, 255, 0.18);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, opacity 0.25s ease;
   z-index: 2;
+}
+
+.video-thumb:hover .play-badge {
+  transform: scale(1.06);
+}
 }
 
 .video-thumb:hover .play-badge {
@@ -497,10 +516,23 @@ a {
     width: min(280px, 100%);
   }
 
+ @media (max-width: 900px) {
   .play-badge {
-    width: 48px;
-    height: 48px;
-    font-size: 21px;
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .play-badge {
+    right: 10px;
+    bottom: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
   }
 }
 
@@ -558,5 +590,52 @@ a {
     width: 44px;
     height: 44px;
     font-size: 19px;
+  }
+}
+#kontakti .text-page-inner {
+  text-align: center;
+}
+
+#kontakti p {
+  margin-bottom: 14px;
+}
+.back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  font-family: "Jacquarda Bastarda 9", serif;
+  font-size: 34px;
+  color: var(--blue);
+  background: rgba(244, 243, 239, 0.92);
+  border: 1px solid rgba(33, 66, 255, 0.16);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+}
+@media (max-width: 560px) {
+  .back-to-top {
+    right: 12px;
+    bottom: 12px;
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
   }
 }
