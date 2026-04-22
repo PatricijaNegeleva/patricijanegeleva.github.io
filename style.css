@@ -308,7 +308,7 @@ button:active {
 .video-thumb:hover .play-badge {
   transform: scale(1.06);
 }
-}
+
 
 .video-thumb:hover .play-badge {
   transform: scale(1.06);
@@ -638,4 +638,47 @@ a {
     height: 42px;
     font-size: 28px;
   }
+}
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Jacquarda Bastarda 9", serif;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--blue);
+
+  width: auto;
+  height: auto;
+  padding: 4px 8px;
+
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.lightbox-arrow.visible {
+  display: flex;
+}
+
+.lightbox-arrow-left {
+  left: max(16px, calc(50% - 640px - 46px));
+}
+
+.lightbox-arrow-right {
+  right: max(16px, calc(50% - 640px - 46px));
+}
+
+.lightbox-arrow:hover {
+  opacity: 0.8;
+  transform: translateY(-50%) scale(1.04);
+}
+.series-only {
+  display: none !important;
 }
