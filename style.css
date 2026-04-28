@@ -493,10 +493,12 @@ a {
   }
 
   .categories {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 14px;
-    position: static;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  position: static;
+  width: 100%;
+}
   }
 
   .works-grid {
@@ -534,7 +536,7 @@ a {
   }
 
   }
-}
+
 
 /* MOBILE */
 @media (max-width: 560px) {
@@ -591,6 +593,17 @@ a {
     height: 44px;
     font-size: 19px;
   }
+  .categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.category-link {
+  text-align: center;
+  width: 100%;
+}
 }
 #kontakti .text-page-inner {
   text-align: center;
@@ -681,4 +694,43 @@ a {
 }
 .series-only {
   display: none !important;
+}
+/* SAME BACKGROUND ON ALL SCREEN SIZES */
+@media (max-width: 900px) {
+  body::before {
+    background-size: 560px;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 17%,
+      rgba(0, 0, 0, 0.92) 24%,
+      rgba(0, 0, 0, 0.72) 31%,
+      rgba(0, 0, 0, 0.42) 38%,
+      rgba(0, 0, 0, 0.16) 44%,
+      rgba(0, 0, 0, 0) 50%
+    );
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 17%,
+      rgba(0, 0, 0, 0.92) 24%,
+      rgba(0, 0, 0, 0.72) 31%,
+      rgba(0, 0, 0, 0.42) 38%,
+      rgba(0, 0, 0, 0.16) 44%,
+      rgba(0, 0, 0, 0) 50%
+    );
+  }
+}
+
+@media (max-width: 560px) {
+  body::before {
+    background-size: 560px;
+  }
+}
+
+@media (min-width: 901px) {
+  .works-grid {
+    column-gap: 38px;
+    column-count: 3;
+  }
 }
